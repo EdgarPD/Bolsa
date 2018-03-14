@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/03/2018 01:34:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Profesionista" table="profesionista" schema="public" optimistic-lock="version">
+        <id name="idprofesionista" type="int">
+            <column name="idprofesionista" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" not-null="true" />
+        </property>
+        <property name="apellidop" type="string">
+            <column name="apellidop" not-null="true" />
+        </property>
+        <property name="nacionalidad" type="string">
+            <column name="nacionalidad" not-null="true" />
+        </property>
+        <property name="carrera" type="string">
+            <column name="carrera" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" not-null="true" />
+        </property>
+        <property name="contrasenia" type="string">
+            <column name="contrasenia" not-null="true" />
+        </property>
+        <property name="foto" type="string">
+            <column name="foto" />
+        </property>
+        <set name="postulars" table="postular" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="profesionistaid" />
+            </key>
+            <one-to-many class="modelo.Postular" />
+        </set>
+        <set name="habilidads" table="habilidad" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="profesionistaid" />
+            </key>
+            <one-to-many class="modelo.Habilidad" />
+        </set>
+        <set name="formacionacs" table="formacionac" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="profesionistaid" />
+            </key>
+            <one-to-many class="modelo.Formacionac" />
+        </set>
+        <set name="explaborals" table="explaboral" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="profesionistaid" />
+            </key>
+            <one-to-many class="modelo.Explaboral" />
+        </set>
+    </class>
+</hibernate-mapping>

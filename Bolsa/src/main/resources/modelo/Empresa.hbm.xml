@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/03/2018 01:34:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Empresa" table="empresa" schema="public" optimistic-lock="version">
+        <id name="idempresa" type="int">
+            <column name="idempresa" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" />
+        </property>
+        <property name="oficinas" type="string">
+            <column name="oficinas" />
+        </property>
+        <property name="numempleados" type="java.lang.Integer">
+            <column name="numempleados" />
+        </property>
+        <property name="contacto" type="string">
+            <column name="contacto" />
+        </property>
+        <set name="vacantes" table="vacante" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="empresaid" />
+            </key>
+            <one-to-many class="modelo.Vacante" />
+        </set>
+    </class>
+</hibernate-mapping>

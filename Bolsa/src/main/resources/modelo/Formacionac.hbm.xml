@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/03/2018 01:34:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Formacionac" table="formacionac" schema="public" optimistic-lock="version">
+        <id name="idformacionac" type="int">
+            <column name="idformacionac" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="profesionista" class="modelo.Profesionista" fetch="select">
+            <column name="profesionistaid" />
+        </many-to-one>
+        <property name="colegio" type="string">
+            <column name="colegio" />
+        </property>
+        <property name="nivel" type="java.lang.Integer">
+            <column name="nivel" />
+        </property>
+        <property name="periodoc" type="date">
+            <column name="periodoc" length="13" />
+        </property>
+        <property name="periodot" type="date">
+            <column name="periodot" length="13" />
+        </property>
+    </class>
+</hibernate-mapping>
