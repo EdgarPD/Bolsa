@@ -20,5 +20,51 @@ import modelo.EmpresaDAO;
  * @author Cal
  */
 public class AgregarEmpresa {
+    private String nombre;
+    private String oficinas;
+    private Integer numempleados;
+    private String contacto;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
     
+    public String getOficinas() {
+        return this.oficinas;
+    }
+    
+    public void setOficinas(String oficinas) {
+        this.oficinas = oficinas;
+    }
+    public Integer getNumempleados() {
+        return this.numempleados;
+    }
+    
+    public void setNumempleados(Integer numempleados) {
+        this.numempleados = numempleados;
+    }
+    public String getContacto() {
+        return this.contacto;
+    }
+    
+    public void setContacto(String contacto) {
+        this.contacto = contacto;
+    }
+    
+    /**
+     * peticion que guarda un proyecto 
+     */
+    public void agregaEmpresa(){
+        Empresa p = new Empresa();
+        p.setNombre(nombre);
+        p.setOficinas(oficinas);
+        p.setNumempleados(numempleados);
+        p.setContacto(contacto);
+        EmpresaDAO pd = new EmpresaDAO();
+        pd.agrega(p);
+    }
 }
